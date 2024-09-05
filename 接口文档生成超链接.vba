@@ -76,8 +76,8 @@ Function SubSheetManager(rv_ws As Worksheet)
     Dim at_data_end As Range
     Dim at_data_area As Range
     
-    Set c_dir_start_cell = rv_ws.Range("B2")
-    Set c_dir_index_start_cell = rv_ws.Range("A2")
+    Set c_dir_start_cell = rv_ws.Range("D9")
+    Set c_dir_index_start_cell = rv_ws.Range("C9")
     c_data_col_offset = 8
 
     isFirst = True
@@ -89,7 +89,10 @@ Function SubSheetManager(rv_ws As Worksheet)
     rowNumber = 1
 
     ' 先创建一个返回封面的超链接
-    call CreateLinkBackCover(sheet1, rv_ws.Range("D13"))
+    call CreateLinkBackCover(sheet1, rv_ws.Range("J9"))
+
+    ' 移除原有信息
+     rv_ws.Range("C10:I30").ClearContents
 
     ' 遍历 O 列,找到起始地址
     Do While isRunFirst
